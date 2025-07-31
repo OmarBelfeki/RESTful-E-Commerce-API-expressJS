@@ -1,0 +1,83 @@
+### --------------------------
+### 1️⃣ CATEGORIES
+### --------------------------
+
+
+# Create a new category
+POST http://localhost:5000/api/categories
+Content-Type: application/json
+
+{
+    "name": "Electronics2"
+}
+
+> {% client.global.set("category_id", response.body._id); %}
+
+### GET all categories
+GET http://localhost:5000/api/categories
+Accept: application/json
+
+### --------------------------
+### 2️⃣ PRODUCTS
+### --------------------------
+
+
+# Create a new product
+
+POST http://localhost:5000/api/products
+Content-Type: application/json
+
+{
+  "name": "Smartphone",
+  "description": "Latest Android Phone",
+  "price": 599,
+  "stock": 10,
+  "category": "{{category_id}}"
+}
+
+### GET all products
+GET http://localhost:5000/api/products
+Accept: application/json
+
+### Update a produt
+PUT http://localhost:5000/api/prodcucts/688bc18353230c8e17cd3252
+Content-Type: application/json
+
+{
+    "price": 150,
+    "stock": 15
+}
+
+### Delete a product
+DELETE http://localhost:5000/api/products/688bbf9f53230c8e17cd3248
+
+
+###
+
+### --------------------------
+### 3️⃣ CART
+### --------------------------
+
+# add a product to cart
+POST http://localhost:5000/api/cart/add
+Content-Type: application/json
+
+{
+    "productId": "688bc18353230c8e17cd3252",
+    "quantity": 2
+}
+
+### GET current cart
+GET http://localhost:5000/api/cart
+Accept: application/json
+
+### --------------------------
+### 4️⃣ ORDERS
+### --------------------------
+
+# Checkout and place order
+POST http://localhost:5000/api/orders/checkout
+Accept: application/json
+
+
+### by Omar Belfeki
