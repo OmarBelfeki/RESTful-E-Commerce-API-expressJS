@@ -2,7 +2,7 @@
 ### 1️⃣ CATEGORIES
 ### --------------------------
 
-
+### change http://localhost:5000 with https://restful-e-commerce-api-expressjs.onrender.com/
 # Create a new category
 POST http://localhost:5000/api/categories
 Content-Type: application/json
